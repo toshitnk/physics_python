@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.integrate import odeint
 
 # exact solution
 t_exact = np.linspace(0, 1, 100)
@@ -86,6 +87,13 @@ if __name__ == "__main__":
     heun_method(np.exp(-2), 0.0, 1.0, 0.01, line=True)
     
     runge_kutta(np.exp(-2), 0.0, 1.0, 0.01, line=True)
+
+    
+    # scipyをつかう．
+    t = np.arange(0.0, 1.0, 0.01)
+    x = odeint(diff, np.exp(-2),t )
+    plt.plot(t, x, label="scipy RK45")
+
 
     plt.legend()
     plt.savefig("ode_compare.png")
