@@ -95,7 +95,7 @@ if __name__ == "__main__":
     # scipyをつかう．
     x = solve_ivp(diff, [0, 1], [np.exp(-2)], method="RK45", t_eval=np.arange(0,1,0.01).tolist())
     #print(x.t, x.y)
-    plt.plot(x.t, x.y[0], label="scipy RK45")
+    plt.plot(x.t, x.y[0], label="scipy RK45", linestyle="dotted")
 
 
     plt.legend()
