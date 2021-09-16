@@ -10,9 +10,6 @@ plt.plot(t_exact, x_exact, label="Exact")
 
 
 # given differential function
-def diff(t, x):
-    f = -4 * (t-1) * x
-    return f
 # euler method
 
 def euler_method(x_init, t_min, t_max, h, line=False):
@@ -82,6 +79,10 @@ def runge_kutta(x_init, t_min, t_max, h, line=False):
 
 
 if __name__ == "__main__":
+
+    def diff(t, x):
+        f = -4 * (t-1) * x
+        return f
 
     euler_method(np.exp(-2), 0.0, 1.0, 0.01, line=True)
     #euler_method(np.exp(-2), 0.0, 1.0, 0.01)
